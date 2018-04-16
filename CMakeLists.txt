@@ -33,18 +33,14 @@ list(REMOVE_DUPLICATES INCLUDE_DIRS)
 include_directories(${INCLUDE_DIRS})
 include_directories("build/include")
 
-# Arduino libraries
+#[[# Arduino libraries
 set(ARDUINO_LIBS_INCLUDE_DIRS "")
 SUBDIRLIST(ARDUINO_LIBS_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/components/arduino/libraries" src/)
 list(REMOVE_DUPLICATES ARDUINO_LIBS_INCLUDE_DIRS)
 include_directories(${ARDUINO_LIBS_INCLUDE_DIRS})
 
 # Arduino framework
-include_directories("components/arduino/cores/esp32/")
-
-# SPI Flash library
-include_directories("main/SPIFlash/src")
-file(GLOB_RECURSE SOURCES "main/SPIFlash/src/*.c")
+include_directories("components/arduino/cores/esp32/")]]
 
 # Fake exec
 add_executable(hello_world
